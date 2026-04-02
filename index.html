@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Md Sunjid | Personal Page</title>
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    :root{
+      --bg-overlay-1: rgba(8,10,20,0.58);
+      --bg-overlay-2: rgba(8,10,20,0.72);
+      --text: #ffffff;
+      --soft: rgba(255,255,255,0.12);
+      --soft-2: rgba(255,255,255,0.08);
+      --stroke: rgba(255,255,255,0.18);
+      --shadow: 0 20px 60px rgba(0,0,0,0.35);
+      --glass: linear-gradient(135deg, rgba(255,255,255,0.16), rgba(255,255,255,0.06));
+      --card-bg: rgba(255,255,255,0.08);
+      --btn1: #5b8cff;
+      --btn2: #7a5cff;
+      --btn3: #00d9a6;
+      --btn4: #00b3ff;
+    }
+
+    body.light-mode{
+      --bg-overlay-1: rgba(230,235,255,0.60);
+      --bg-overlay-2: rgba(190,210,255,0.68);
+      --text: #111827;
+      --soft: rgba(255,255,255,0.35);
+      --soft-2: rgba(255,255,255,0.24);
+      --stroke: rgba(255,255,255,0.55);
+      --shadow: 0 20px 60px rgba(0,0,0,0.18);
+      --glass: linear-gradient(135deg, rgba(255,255,255,0.55), rgba(255,255,255,0.22));
+      --card-bg: rgba(255,255,255,0.22);
+      --btn1: #2563eb;
+      --btn2: #7c3aed;
+      --btn3: #059669;
+      --btn4: #0284c7;
+    }
+
+    body{
+      font-family: Arial, sans-serif;
+      min-height:100vh;
+      color:var(--text);
+      overflow-x:hidden;
+      background:
+        linear-gradient(var(--bg-overlay-1), var(--bg-overlay-2)),
+        url("myphoto.jpg") center/cover no-repeat fixed;
+      position:relative;
+      transition: background 0.5s ease, color 0.35s ease;
+    }
+
+    .bg-blur{
+      position:fixed;
+      inset:0;
+      backdrop-filter: blur(6px);
+      z-index:0;
+    }
+
+    .blob{
+      position:fixed;
+      border-radius:50%;
+      filter:blur(45px);
+      opacity:0.42;
+      animation: floatBlob 12s ease-in-out infinite;
+      z-index:0;
+      pointer-events:none;
+    }
+
+    .blob1{
+      width:220px;
+      height:220px;
+      background:#5b8cff;
+      top:8%;
+      left:6%;
+    }
+
+    .blob2{
+      width:260px;
+      height:260px;
+      background:#ff4fd8;
+      bottom:10%;
+      right:8%;
+      animation-delay:2s;
+    }
+
+    .blob3{
+      width:180px;
+      height:180px;
+      background:#00ffd5;
+      top:58%;
+      left:12%;
+      animation-delay:4s;
+    }
+
+    @keyframes floatBlob{
+      0%,100%{transform:translateY(0) translateX(0) scale(1);}
+      25%{transform:translateY(-20px) translateX(20px) scale(1.05);}
+      50%{transform:translateY(12px) translateX(-15px) scale(0.95);}
+      75%{transform:translateY(-12px) translateX(10px) scale(1.03);}
+    }
+
+    .wrap{
+      position:relative;
+      z-index:2;
+      min-height:100vh;
+      display:grid;
+      place-items:center;
+      padding:24px;
+    }
+
+    .card{
+      width:min(950px, 100%);
+      background:var(--glass);
+      border:1px solid var(--stroke);
+      border-radius:28px;
+      box-shadow:var(--shadow);
+      backdrop-filter:blur(18px);
+      overflow:hidden;
+      animation: cardIn 1.1s ease;
+      transition: background 0.35s ease, border 0.35s ease, box-shadow 0.35s ease;
+    }
+
+    @keyframes cardIn{
+      from{
+        opacity:0;
+        transform:translateY(30px) scale(0.96);
+      }
+      to{
+        opacity:1;
+        transform:translateY(0) scale(1);
+      }
+    }
+
+    .top-bar{
+      height:7px;
+      background: linear-gradient(90deg, #00ffd5, #5b8cff, #ff4fd8, #ffd54f);
+      background-size:300% 300%;
+      animation: glowline 6s linear infinite;
+    }
+
+    @keyframes glowline{
+      0%{background-position:0% 50%;}
+      100%{background-position:100% 50%;}
+    }
+
+    .content{
+      display:grid;
+      grid-template-columns:360px 1fr;
+      gap:24px;
+      padding:28px;
+    }
+
+    .left-panel{
+      background:var(--soft-2);
+      border:1px solid var(--stroke);
+      border-radius:24px;
+      padding:22px;
+      text-align:center;
+      animation: floatCard 4s ease-in-out infinite;
+      transition: background 0.35s ease, border 0.35s ease;
+    }
+
+    @keyframes floatCard{
+      0%,100%{transform:translateY(0);}
+      50%{transform:translateY(-8px);}
+    }
+
+    .profile-ring{
+      width:180px;
+      height:180px;
+      margin:0 auto 16px;
+      border-radius:50%;
+      padding:5px;
+      background: linear-gradient(135deg, #00ffd5, #5b8cff, #ff4fd8);
+      animation: spinSlow 7s linear infinite;
+      box-shadow:0 0 30px rgba(91,140,255,0.35);
+    }
+
+    @keyframes spinSlow{
+      from{transform:rotate(0deg);}
+      to{transform:rotate(360deg);}
+    }
+
+    .profile-ring img{
+      width:100%;
+      height:100%;
+      border-radius:50%;
+      object-fit:cover;
+      border:6px solid rgba(15,16,25,0.95);
+      animation: antiSpin 7s linear infinite;
+    }
+
+    body.light-mode .profile-ring img{
+      border:6px solid rgba(255,255,255,0.9);
+    }
+
+    @keyframes antiSpin{
+      from{transform:rotate(0deg);}
+      to{transform:rotate(-360deg);}
+    }
+
+    .name{
+      font-size:32px;
+      font-weight:700;
+      letter-spacing:1px;
+      margin-bottom:8px;
+      text-shadow:0 0 16px rgba(255,255,255,0.18);
+    }
+
+    .tag{
+      display:inline-block;
+      padding:8px 16px;
+      border-radius:999px;
+      background:rgba(255,255,255,0.1);
+      border:1px solid rgba(255,255,255,0.14);
+      font-size:14px;
+      margin-bottom:14px;
+      transition: 0.35s ease;
+    }
+
+    .small-text{
+      font-size:14px;
+      opacity:0.9;
+      line-height:1.6;
+    }
+
+    .right-panel{
+      display:flex;
+      flex-direction:column;
+      gap:20px;
+    }
+
+    .hero{
+      background:var(--soft-2);
+      border:1px solid var(--stroke);
+      border-radius:24px;
+      padding:26px;
+      position:relative;
+      overflow:hidden;
+      transition: background 0.35s ease, border 0.35s ease;
+    }
+
+    .hero::before{
+      content:"";
+      position:absolute;
+      inset:auto -20% -50% auto;
+      width:260px;
+      height:260px;
+      border-radius:50%;
+      background: radial-gradient(circle, rgba(255,255,255,0.15), transparent 60%);
+      animation: pulseOrb 5s ease-in-out infinite;
+    }
+
+    @keyframes pulseOrb{
+      0%,100%{transform:scale(0.9); opacity:0.6;}
+      50%{transform:scale(1.15); opacity:1;}
+    }
+
+    .hero h2{
+      font-size:36px;
+      margin-bottom:12px;
+      line-height:1.15;
+    }
+
+    .hero p{
+      font-size:16px;
+      opacity:0.9;
+      line-height:1.7;
+      max-width:580px;
+    }
+
+    .theme-toggle-wrap{
+      display:flex;
+      justify-content:flex-end;
+    }
+
+    .theme-toggle{
+      border:none;
+      cursor:pointer;
+      padding:12px 18px;
+      border-radius:999px;
+      color:white;
+      font-size:14px;
+      font-weight:700;
+      background: linear-gradient(135deg, var(--btn1), var(--btn2));
+      box-shadow:0 12px 24px rgba(91,140,255,0.28);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .theme-toggle:hover,
+    .theme-toggle:active{
+      transform:translateY(-3px) scale(1.03);
+    }
+
+    .info-grid{
+      display:grid;
+      grid-template-columns:repeat(2, 1fr);
+      gap:16px;
+    }
+
+    .info-box{
+      background:var(--soft-2);
+      border:1px solid var(--stroke);
+      border-radius:20px;
+      padding:18px;
+      transition:0.35s ease;
+    }
+
+    .info-box:hover{
+      transform:translateY(-6px);
+      background:rgba(255,255,255,0.12);
+      box-shadow:0 16px 30px rgba(0,0,0,0.18);
+    }
+
+    .label{
+      font-size:13px;
+      opacity:0.72;
+      margin-bottom:6px;
+    }
+
+    .value{
+      font-size:18px;
+      font-weight:700;
+      word-break:break-word;
+    }
+
+    .socials{
+      display:grid;
+      grid-template-columns:repeat(2, 1fr);
+      gap:16px;
+    }
+
+    .social-btn{
+      display:flex;
+      align-items:center;
+      gap:14px;
+      padding:16px 18px;
+      text-decoration:none;
+      color:var(--text);
+      border-radius:20px;
+      background:linear-gradient(135deg, rgba(255,255,255,0.13), rgba(255,255,255,0.06));
+      border:1px solid rgba(255,255,255,0.18);
+      transition:transform 0.25s ease, box-shadow 0.3s ease, background 0.3s ease;
+      position:relative;
+      overflow:hidden;
+      user-select:none;
+    }
+
+    .social-btn::before{
+      content:"";
+      position:absolute;
+      top:0;
+      left:-120%;
+      width:70%;
+      height:100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent);
+      transition:0.7s;
+    }
+
+    .social-btn:hover::before{
+      left:140%;
+    }
+
+    .social-btn:hover{
+      transform:translateY(-8px) scale(1.02);
+      box-shadow:0 18px 35px rgba(0,0,0,0.24);
+      background:linear-gradient(135deg, rgba(255,255,255,0.20), rgba(255,255,255,0.09));
+    }
+
+    .social-btn img{
+      width:52px;
+      height:52px;
+      object-fit:contain;
+      background:rgba(255,255,255,0.12);
+      border-radius:16px;
+      padding:8px;
+      border:1px solid rgba(255,255,255,0.16);
+      transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
+    }
+
+    .social-btn:active img,
+    .social-btn.tap-active img{
+      animation: logoTap 0.55s ease;
+      box-shadow:
+        0 0 12px rgba(255,255,255,0.4),
+        0 0 22px rgba(91,140,255,0.45),
+        0 0 36px rgba(255,79,216,0.28);
+      filter:brightness(1.15) saturate(1.2);
+    }
+
+    .social-btn.tap-active{
+      transform: scale(0.97);
+      box-shadow: 0 0 0 3px rgba(255,255,255,0.10), 0 10px 28px rgba(0,0,0,0.26);
+    }
+
+    @keyframes logoTap{
+      0%{transform:scale(1) rotate(0deg);}
+      25%{transform:scale(1.20) rotate(-8deg);}
+      50%{transform:scale(0.95) rotate(8deg);}
+      75%{transform:scale(1.12) rotate(-4deg);}
+      100%{transform:scale(1) rotate(0deg);}
+    }
+
+    .social-text strong{
+      display:block;
+      font-size:18px;
+      margin-bottom:4px;
+    }
+
+    .social-text span{
+      font-size:13px;
+      opacity:0.82;
+    }
+
+    .bottom-actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:14px;
+    }
+
+    .action-btn{
+      border:none;
+      outline:none;
+      cursor:pointer;
+      padding:14px 18px;
+      border-radius:999px;
+      color:white;
+      font-size:15px;
+      font-weight:700;
+      letter-spacing:0.3px;
+      background: linear-gradient(135deg, var(--btn1), var(--btn2));
+      box-shadow:0 12px 24px rgba(91,140,255,0.30);
+      transition:0.35s ease;
+    }
+
+    .action-btn:hover,
+    .action-btn:active{
+      transform:translateY(-4px) scale(1.03);
+    }
+
+    .action-btn.secondary{
+      background: linear-gradient(135deg, var(--btn3), var(--btn4));
+      box-shadow:0 12px 24px rgba(0,200,180,0.28);
+    }
+
+    .footer-text{
+      opacity:0.78;
+      font-size:13px;
+      text-align:center;
+      padding:0 24px 24px;
+    }
+
+    @media (max-width: 860px){
+      .content{
+        grid-template-columns:1fr;
+      }
+
+      .hero h2{
+        font-size:30px;
+      }
+    }
+
+    @media (max-width: 560px){
+      .socials,
+      .info-grid{
+        grid-template-columns:1fr;
+      }
+
+      .profile-ring{
+        width:150px;
+        height:150px;
+      }
+
+      .name{
+        font-size:26px;
+      }
+
+      .hero h2{
+        font-size:24px;
+      }
+
+      .content{
+        padding:18px;
+      }
+
+      .theme-toggle-wrap{
+        justify-content:center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-blur"></div>
+  <div class="blob blob1"></div>
+  <div class="blob blob2"></div>
+  <div class="blob blob3"></div>
+
+  <div class="wrap">
+    <div class="card">
+      <div class="top-bar"></div>
+
+      <div class="content">
+        <div class="left-panel">
+          <div class="profile-ring">
+            <img src="myphoto.jpg" alt="My Photo">
+          </div>
+
+          <div class="name">Md Sunjid</div>
+          <div class="tag">Personal Web Space</div>
+          <div class="small-text">
+            Welcome to my personal page. <br>
+            Touch any platform icon and open instantly.
+          </div>
+        </div>
+
+        <div class="right-panel">
+          <div class="theme-toggle-wrap">
+            <button class="theme-toggle" onclick="toggleTheme()" id="themeBtn">🌙 Dark Mode</button>
+          </div>
+
+          <div class="hero">
+            <h2>My Links, My Style, My World ✨</h2>
+            <p>
+              This is my advanced animated personal website. Here you can open my Facebook,
+              TikTok, Instagram, copy my Free Fire ID, and contact me on WhatsApp.
+            </p>
+          </div>
+
+          <div class="info-grid">
+            <div class="info-box">
+              <div class="label">WhatsApp Number</div>
+              <div class="value">01628801587</div>
+            </div>
+
+            <div class="info-box">
+              <div class="label">Free Fire ID</div>
+              <div class="value">2033302840</div>
+            </div>
+          </div>
+
+          <div class="socials">
+            <a class="social-btn app-btn" href="https://www.facebook.com/share/1FbKCthJUX/" target="_blank">
+              <img src="fb.png" alt="Facebook">
+              <div class="social-text">
+                <strong>Facebook</strong>
+                <span>Open my Facebook profile</span>
+              </div>
+            </a>
+
+            <a class="social-btn app-btn" href="https://www.tiktok.com/@m.s.c.l.me?_r=1&_t=ZS-95DGC5zqLbw" target="_blank">
+              <img src="tiktok.png" alt="TikTok">
+              <div class="social-text">
+                <strong>TikTok</strong>
+                <span>Open my TikTok profile</span>
+              </div>
+            </a>
+
+            <a class="social-btn app-btn" href="https://www.instagram.com/s_a_n_j_i_d001?igsh=amlqcGo4N2R2czJj" target="_blank">
+              <img src="insta.png" alt="Instagram">
+              <div class="social-text">
+                <strong>Instagram</strong>
+                <span>Open my Instagram profile</span>
+              </div>
+            </a>
+
+            <a class="social-btn app-btn" href="javascript:void(0)" onclick="copyFFID()">
+              <img src="ff.png" alt="Free Fire">
+              <div class="social-text">
+                <strong>Free Fire</strong>
+                <span>Tap to copy ID</span>
+              </div>
+            </a>
+          </div>
+
+          <div class="bottom-actions">
+            <a href="https://wa.me/8801628801587" target="_blank">
+              <button class="action-btn secondary">Open WhatsApp</button>
+            </a>
+
+            <button class="action-btn" onclick="copyNumber()">Copy Number</button>
+            <button class="action-btn" onclick="copyFFID()">Copy FF ID</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-text">
+        Made with style 😎🔥
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function copyFFID() {
+      navigator.clipboard.writeText("2033302840");
+      alert("Free Fire ID copied: 2033302840");
+    }
+
+    function copyNumber() {
+      navigator.clipboard.writeText("01628801587");
+      alert("WhatsApp number copied: 01628801587");
+    }
+
+    function toggleTheme() {
+      document.body.classList.toggle("light-mode");
+      const btn = document.getElementById("themeBtn");
+
+      if (document.body.classList.contains("light-mode")) {
+        btn.innerHTML = "☀️ Light Mode";
+        localStorage.setItem("theme", "light");
+      } else {
+        btn.innerHTML = "🌙 Dark Mode";
+        localStorage.setItem("theme", "dark");
+      }
+    }
+
+    window.onload = function () {
+      const savedTheme = localStorage.getItem("theme");
+      const btn = document.getElementById("themeBtn");
+
+      if (savedTheme === "light") {
+        document.body.classList.add("light-mode");
+        btn.innerHTML = "☀️ Light Mode";
+      } else {
+        btn.innerHTML = "🌙 Dark Mode";
+      }
+
+      const appButtons = document.querySelectorAll(".app-btn");
+
+      appButtons.forEach((btn) => {
+        btn.addEventListener("touchstart", function () {
+          this.classList.add("tap-active");
+        });
+
+        btn.addEventListener("touchend", function () {
+          setTimeout(() => {
+            this.classList.remove("tap-active");
+          }, 250);
+        });
+
+        btn.addEventListener("mousedown", function () {
+          this.classList.add("tap-active");
+        });
+
+        btn.addEventListener("mouseup", function () {
+          setTimeout(() => {
+            this.classList.remove("tap-active");
+          }, 250);
+        });
+
+        btn.addEventListener("mouseleave", function () {
+          this.classList.remove("tap-active");
+        });
+      });
+    };
+  </script>
+</body>
+</html>
