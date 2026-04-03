@@ -642,41 +642,147 @@
       <div class="card section-card">
         <div class="gallery-grid">
 
-          <div class="photo-card">
-            <img src="photo1-1444.jpg" alt="Photo 1">
-            <div class="photo-info">
-              <h3>My Photo 1</h3>
-              
-              <div class="download-row">
-                <a class="d-btn" href="photo1-1444.jpg" download>Download 1444</a>
-                <a class="d-btn" href="photo1-1080.jpg" download>Download 1080</a>
-                <a class="d-btn" href="photo1-720.jpg" download>Download 720</a>
-              </div>
-            </div>
-          </div>
+          <section class="section">
+  <div class="card section-card">
+    <div class="section-title">Extra Photo Folder</div>
 
-          <div class="photo-card">
-            <img src="photo2-1444.jpg" alt="Photo 2">
-            <div class="photo-info">
-              <h3>My Photo 2</h3>
-              <div class="download-row">
-                <a class="d-btn" href="photo2-1444.jpg" download>Download 1444</a>
-                <a class="d-btn" href="photo2-1080.jpg" download>Download 1080</a>
-                <a class="d-btn" href="photo2-720.jpg" download>Download 720</a>
-              </div>
-            </div>
-          </div>
+    <div class="helper-box">
+      এখানে 8টা বড় photo card রাখা হয়েছে।<br>
+      শুধু <b>Download</b> button থাকবে।<br>
+      তুই 4K বা HD photo use করবি, আর file name নিচের মতো রাখবি।
+    </div>
 
-          <div class="photo-card">
-            <img src="photo3-1444.jpg" alt="Photo 3">
-            <div class="photo-info">
-              <h3>My Photo 3</h3>
-              <div class="download-row">
-                
-                <a class="d-btn" href="photo3-1080.jpg" download>Download⬇️</a>
-              </div>
-            </div>
+    <div class="gallery-grid bigger-gallery">
+
+      <div class="photo-card big-photo">
+        <img src="photo1.jpg" alt="Photo 1">
+        <div class="photo-info">
+          <h3>My Photo 1</h3>
+          <p>High quality photo download.</p>
+          <div class="download-row">
+            <a class="d-btn" href="photo1.jpg" download>Download</a>
           </div>
+        </div>
+      </div>
+
+      <div class="photo-card big-photo">
+        <img src="photo2.jpg" alt="Photo 2">
+        <div class="photo-info">
+          <h3>My Photo 2</h3>
+          <p>High quality photo download.</p>
+          <div class="download-row">
+            <a class="d-btn" href="photo2.jpg" download>Download</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="photo-card big-photo">
+        <img src="photo3.jpg" alt="Photo 3">
+        <div class="photo-info">
+          <h3>My Photo 3</h3>
+          <p>High quality photo download.</p>
+          <div class="download-row">
+            <a class="d-btn" href="photo3.jpg" download>Download</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="photo-card big-photo">
+        <img src="photo4.jpg" alt="Photo 4">
+        <div class="photo-info">
+          <h3>My Photo 4</h3>
+          <p>High quality photo download.</p>
+          <div class="download-row">
+            <a class="d-btn" href="photo4.jpg" download>Download</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="photo-card big-photo">
+        <img src="photo5.jpg" alt="Photo 5">
+        <div class="photo-info">
+          <h3>My Photo 5</h3>
+          <p>High quality photo download.</p>
+          <div class="download-row">
+            <a class="d-btn" href="photo5.jpg" download>Download</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="photo-card big-photo">
+        <img src="photo6.jpg" alt="Photo 6">
+        <div class="photo-info">
+          <h3>My Photo 6</h3>
+          <p>High quality photo download.</p>
+          <div class="download-row">
+            <a class="d-btn" href="photo6.jpg" download>Download</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="photo-card big-photo">
+        <img src="photo7.jpg" alt="Photo 7">
+        <div class="photo-info">
+          <h3>My Photo 7</h3>
+          <p>High quality photo download.</p>
+          <div class="download-row">
+            <a class="d-btn" href="photo7.jpg" download>Download</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="photo-card big-photo">
+        <img src="photo8.jpg" alt="Photo 8">
+        <div class="photo-info">
+          <h3>My Photo 8</h3>
+          <p>High quality photo download.</p>
+          <div class="download-row">
+            <a class="d-btn" href="photo8.jpg" download>Download</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+            .bigger-gallery{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:22px;
+  margin-top:16px;
+}
+
+.big-photo img{
+  width:100%;
+  height:520px;
+  object-fit:cover;
+  display:block;
+}
+
+.big-photo .photo-info{
+  padding:18px;
+}
+
+.big-photo .photo-info h3{
+  font-size:24px;
+  margin-bottom:8px;
+}
+
+.big-photo .photo-info p{
+  font-size:15px;
+  line-height:1.7;
+  margin-bottom:14px;
+}
+
+@media (max-width:900px){
+  .bigger-gallery{
+    grid-template-columns:1fr;
+  }
+
+  .big-photo img{
+    height:380px;
+  }
+}
+          </section>
 
         </div>
 
