@@ -532,7 +532,29 @@
       .section-card{
         padding:18px;
       }
-    {
+    .horizontal-gallery{
+  display:flex;
+  gap:20px;
+  overflow-x:auto;
+  scroll-snap-type:x mandatory;
+  padding-bottom:10px;
+  scroll-behavior:smooth;
+}
+
+.horizontal-gallery::-webkit-scrollbar{
+  height:6px;
+}
+
+.horizontal-gallery::-webkit-scrollbar-thumb{
+  background:rgba(255,255,255,0.3);
+  border-radius:10px;
+}
+
+.big-photo{
+  min-width:85%;
+  flex:0 0 auto;
+  scroll-snap-align:start;
+}{
   display:grid;
   grid-template-columns:repeat(2,1fr);
   gap:22px;
@@ -564,7 +586,29 @@
 @media (max-width:900px){
   .bigger-gallery{
     grid-template-columns:1fr;
-  }
+ .horizontal-gallery{
+  display:flex;
+  gap:20px;
+  overflow-x:auto;
+  scroll-snap-type:x mandatory;
+  padding-bottom:10px;
+  scroll-behavior:smooth;
+}
+
+.horizontal-gallery::-webkit-scrollbar{
+  height:6px;
+}
+
+.horizontal-gallery::-webkit-scrollbar-thumb{
+  background:rgba(255,255,255,0.3);
+  border-radius:10px;
+}
+
+.big-photo{
+  min-width:85%;
+  flex:0 0 auto;
+  scroll-snap-align:start;
+} }
 
   .big-photo img{
     height:380px;
@@ -686,7 +730,7 @@
     <div class="helper-box">
       
 
-    <div class="gallery-grid bigger-gallery">
+    <div class="horizontal-gallery">
 
       <div class="photo-card big-photo">
         <img src="photo1.jpg" alt="Photo 1">
